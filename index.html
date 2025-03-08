@@ -1,23 +1,418 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Spoon-Knife</title>
-  <LINK href="styles.css" rel="stylesheet" type="text/css">
+    <title>All Business Look up</title>
+<script src='https://code.jquery.com/jquery-3.7.1.js'/>
 </head>
-
 <body>
+<script>
+//<![CDATA[
+var namesite = "sislovesme";
+if(namesite == "selects" || namesite == "sislovesme" || namesite == "shoplyfter" || namesite == "bffs" || namesite == "brat-tamer" || namesite == "moms-ts" || namesite == "pervmom" || namesite == "labs" || namesite == "teamskeet" || namesite == "dadcrush" || namesite == "hijab-hookup" || namesite == "mylf-labs" || namesite == "all-stars" || namesite == "daughterswap" || namesite == "my-babysitters-club" || namesite == "momdrips-ts" || namesite == "teenpies" || namesite == "family-strokes" || namesite == "tiger-moms-ts" || namesite == "shesnew" || namesite == "anal-mom-ts" || namesite == "not-my-grandpa" || namesite == "mylfwood-ts" || namesite == "freeuse-fantasy" || namesite == "stepsiblings" || namesite == "sis-swap" || namesite == "pervtherapy"){
+$('.modelContainer').remove();
 
-<img src="forkit.gif" id="octocat" alt="" />
+$.ajax({
+    url: "https://www.blogger.com/feeds/6330343205240660003/posts/default/-/"+namesite+"?max-results=30&alt=json-in-script",
+    type: "get",
+    dataType: "jsonp",
+    success: function (data) {
+var totalposts = data.feed.entry.length;
+var loveagain = "";
+for (var i = 0; i < data.feed.entry.length; i++) {
+var posttitle = data.feed.entry[i].title.$t;
+var postcontent = data.feed.entry[i].content.$t;
 
-<!-- Feel free to change this text here -->
-<p>
-  Fork me? Fork you, @octocat!
-</p>
-<p>
-  Sean made a change
-</p>
+var thumburl;try{thumburl=data.feed.entry[i].media$img.url;}catch(error)
+{s=data.feed.entry[i].content.$t;a=s.indexOf("<img");b=s.indexOf("src=\"",a);c=s.indexOf("\"",b+5);d=s.substr(b+5,c-b-5);if((a!=-1)&&(b!=-1)&&(c!=-1)&&(d!="")){thumburl=d;}else thumburl='http://3.bp.blogspot.com/-zP87C2q9yog/UVopoHY30SI/AAAAAAAAE5k/AIyPvrpGLn8/s1600/picture_not_available.png';}
 
+var summary = data.feed.entry[i].content.$t.replace(/<\/?[^>]+(>|$)/g, "").substr(0, 20000);
+var myString = summary.split("@");
+
+loveagain = "<div class='img-slider'><div class='imagex-container slide-image-wrapper showpacity' style='padding-top:25%'><img alt='' class='img-responsive slider-image showpacity' src='"+ myString[0] +"' srcset='"+ myString[0] +"' sizes='(max-width: 768px) 768px, (max-width: 1028px) and (min-width: 769px) 1028px, (min-width: 1029px) 2000px'/></div></div><div data-test='container' class='container'><div class='mt-3'></div><div class='row justify-content-between' data-test='row'><div class='col-12 col-lg-12 text-center' data-test='col'><h1 class='contentTitle extraBig text-uppercase text-white'>"+ posttitle +"</h1></div></div><div class='row text-center' data-test='row'><div class='col text-white scene-description' data-test='col'>"+ myString[1] +"</div></div></div>";
+
+
+}
+
+$(loveagain).appendTo(".bannerpage");
+
+}
+});
+
+$('.model-profile-page').remove();
+$('#setheadingprofile').addClass('d-none');
+$('#getheadingsites').removeClass('d-none');
+$.ajax({
+    url: "https://www.blogger.com/feeds/5867184231478310218/posts/default/-/"+namesite+"?max-results=30&alt=json-in-script",
+    type: "get",
+    dataType: "jsonp",
+    success: function (data) {
+var totalposts = data.feed.entry.length;
+var love = "";
+for (var i = 0; i < data.feed.entry.length; i++) {
+var posttitle = data.feed.entry[i].title.$t;
+var postcontent = data.feed.entry[i].content.$t;
+
+var thumburl;try{thumburl=data.feed.entry[i].media$img.url;}catch(error)
+{s=data.feed.entry[i].content.$t;a=s.indexOf("<img");b=s.indexOf("src=\"",a);c=s.indexOf("\"",b+5);d=s.substr(b+5,c-b-5);if((a!=-1)&&(b!=-1)&&(c!=-1)&&(d!="")){thumburl=d;}else thumburl='http://3.bp.blogspot.com/-zP87C2q9yog/UVopoHY30SI/AAAAAAAAE5k/AIyPvrpGLn8/s1600/picture_not_available.png';}
+
+var postdate=data.feed.entry[i].published.$t;var cdyear=postdate.substring(0,4);var cdmonth=postdate.substring(5,7);var cdday=postdate.substring(8,10);var monthnames=new Array();monthnames[1]="Jan";monthnames[2]="Feb";monthnames[3]="Mar";monthnames[4]="Apr";monthnames[5]="May";monthnames[6]="June";monthnames[7]="July";monthnames[8]="Aug";monthnames[9]="Sept";monthnames[10]="Oct";monthnames[11]="Nov";monthnames[12]="Dec";
+
+
+var towrite='';
+
+towrite=towrite+monthnames[parseInt(cdmonth,10)]+' '+cdday+', '+cdyear;
+
+var newdate = cdday+'/'+cdmonth+'/'+cdyear;
+
+var timestamp1=data.feed.entry[i].published.$t.substring(0,19)+data.feed.entry[i].published.$t.substring(23,29);var timestamp=encodeURIComponent(timestamp1);
+
+var summary = data.feed.entry[i].content.$t.replace(/<\/?[^>]+(>|$)/g, "").substr(0, 20000);
+var myString = summary.split("@");
+var setnewurl = myString[0].replace('#', '');
+var newurl = 'https://www.google.com/url?q='+ setnewurl;
+love += "<div class='d-inline p-lg-1 px-3 mb-4 text-white thumbScene'>";
+love += "<div class='videoimg_wrapper no-video'>";
+love += "<a class='' href='"+ newurl +"' title='"+ posttitle +"' id='alinks1' rel=''>";
+love += "<div class=''>";
+love += "<div class='view' data-test='view'>";
+love += "<div class='imagex-container hoverthumbScene' style='padding-top: 56.2%;'>";
+love += "<video autoplay='autoplay' class='video-player' id='replace' loop='loop' playsinline='playsinline' preload='auto' src='"+ myString[1] +"' type='video/mp4'> </video>";
+love += "<img class=' ' alt='"+ posttitle +"' src='"+ thumburl +"' srcset='"+ thumburl +"' title='"+ posttitle +"'/>";  
+love += "</div>";
+love += "</div>";
+love += "</div>";
+love += "</a>";
+love += "</div>";
+love += "<div class='thumb'><div class='modelName text-white text-truncate pt-1'>";
+for (var m = 0; m < data.feed.entry[i].category.length; m++) {
+if(data.feed.entry[i].category[m].term == "selects" || data.feed.entry[i].category[m].term == "sislovesme" || data.feed.entry[i].category[m].term == "shoplyfter" || data.feed.entry[i].category[m].term == "bffs" || data.feed.entry[i].category[m].term == "brat-tamer" || data.feed.entry[i].category[m].term == "moms-ts" || data.feed.entry[i].category[m].term == "pervmom" || data.feed.entry[i].category[m].term == "labs" || data.feed.entry[i].category[m].term == "vixenplus" || data.feed.entry[i].category[m].term == "teamskeet" || data.feed.entry[i].category[m].term == "dadcrush" || data.feed.entry[i].category[m].term == "hijab-hookup" || data.feed.entry[i].category[m].term == "mylf-labs" || data.feed.entry[i].category[m].term == "all-stars" || data.feed.entry[i].category[m].term == "daughterswap" || data.feed.entry[i].category[m].term == "my-babysitters-club" || data.feed.entry[i].category[m].term == "momdrips-ts" || data.feed.entry[i].category[m].term == "teenpies" || data.feed.entry[i].category[m].term == "family-strokes" || data.feed.entry[i].category[m].term == "tiger-moms-ts" || data.feed.entry[i].category[m].term == "shesnew" || data.feed.entry[i].category[m].term == "not-my-grandpa" || data.feed.entry[i].category[m].term == "anal-mom-ts" || data.feed.entry[i].category[m].term == "mylfwood-ts" || data.feed.entry[i].category[m].term == "freeuse-fantasy" || data.feed.entry[i].category[m].term == "stepsiblings" || data.feed.entry[i].category[m].term == "sis-swap" || data.feed.entry[i].category[m].term == "pervtherapy"){
+}else{
+var categoryname = data.feed.entry[i].category[m].term.replace('-', ' ').replace('-', ' ').replace('-', ' ');
+love += "<a class='model-name-link' href='/p/"+ data.feed.entry[i].category[m].term +".html'>"+categoryname+"</a> ";
+}
+}
+love += "</div><div class='scene-thumb-desc'><div class='left-info'><div class='py-1 d-flex'>";
+for (var m = 0; m < data.feed.entry[i].category.length; m++) {
+
+if(data.feed.entry[i].category[m].term == "selects"){
+love += "<a class='' href='/p/selects.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>TeamSkeet Selects</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "sislovesme"){
+love += "<a class='' href='/p/sislovesme.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Sis Loves Me</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "shoplyfter"){
+love += "<a class='' href='/p/shoplyfter.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Shoplyfter</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "bffs"){
+love += "<a class='' href='/p/bffs.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>BFFS</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "brat-tamer"){
+love += "<a class='' href='/p/brat-tamer.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Brat Tamer</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "moms-ts"){
+love += "<a class='' href='/p/moms-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Mylf Of The Month</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "pervmom"){
+love += "<a class='' href='/p/pervmom.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>PervMom</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "labs"){
+love += "<a class='' href='/p/labs.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>TeamSkeet Labs</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "hijab-hookup"){
+love += "<a class='' href='/p/hijab-hookup.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Hijab Hookup</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "dadcrush"){
+love += "<a class='' href='/p/dadcrush.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>DadCrush</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "mylf-labs"){
+love += "<a class='' href='/p/mylf-labs.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Mylf Labs</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "all-stars"){
+love += "<a class='' href='/p/all-stars.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>TeamSkeet AllStars</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "daughterswap"){
+love += "<a class='' href='/p/daughterswap.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Daughter Swap</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "my-babysitters-club"){
+love += "<a class='' href='/p/my-babysitters-club.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>My BabySitters Club</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "momdrips-ts"){
+love += "<a class='' href='/p/momdrips-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>MomDrips</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "teenpies"){
+love += "<a class='' href='/p/teenpies.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Teen Pies</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "family-strokes"){
+love += "<a class='' href='/p/family-strokes.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Family Strokes</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "tiger-moms-ts"){
+love += "<a class='' href='/p/tiger-moms-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Tiger Moms</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "shesnew"){
+love += "<a class='' href='/p/shesnew.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>She's New</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "anal-mom-ts"){
+love += "<a class='' href='/p/anal-mom-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>AnalMom</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "not-my-grandpa"){
+love += "<a class='' href='/p/not-my-grandpa.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Not My Grandpa</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "mylfwood-ts"){
+love += "<a class='' href='/p/mylfwood-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Mylfwood</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "freeuse-fantasy"){
+love += "<a class='' href='/p/freeuse-fantasy.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Freeuse Fantasy</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "stepsiblings"){
+love += "<a class='' href='/p/stepsiblings.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>StepSiblings</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "sis-swap"){
+love += "<a class='' href='/p/sis-swap.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Sis Swap</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "pervtherapy"){
+love += "<a class='' href='/p/pervtherapy.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>PervTherapy</small></div></a>";
+}
+
+}
+
+love += "</div><div class='description'><a class='' expr:href='"+ newurl +"' id='alinks2' rel='' title=''> <small class='description'>"+ posttitle +"</small> </a></div><div class='sceneDate mt-n1 clearfix'><small>"+ newdate +"</small></div></div></div>";
+
+love += "</div>";
+love += "</div>";
+
+$('.blog-pager-older-link').attr('href','https://team-skeet.blogspot.com/search/label/'+namesite+'?updated-max='+timestamp+'&amp;max-results=30&amp;start=31&amp;by-date=false');
+}
+
+$(love).appendTo("#show");
+
+$(".hoverthumbScene").hover(
+    function() {
+  	$(this).children('video').show();
+  	$(this).children('video').css('opacity','1');
+	$(this).children('img').css('opacity','0');
+	$('.iconplay').css('opacity','0');
+      $(this).children("video").get(0).play();
+    }, function() {
+		$(this).children('img').css('opacity','1');
+  		$(this).children('video').css('z-index','0');
+  		$(this).children('video').css('opacity','0');
+       $(this).children("video").get(0).pause();
+    });
+}
+    });
+}else{
+$('.sitevideos').remove();
+$('#blog-pager-1').remove();
+$('#getheadingprofile').removeClass('d-none');
+$.ajax({
+    url: "https://www.blogger.com/feeds/5867184231478310218/posts/default/-/"+namesite+"?max-results=50000&alt=json-in-script",
+    type: "get",
+    dataType: "jsonp",
+    success: function (data) {
+var totalposts = data.feed.entry.length;
+var love = "";
+for (var i = 0; i < data.feed.entry.length; i++) {
+var posttitle = data.feed.entry[i].title.$t;
+var postcontent = data.feed.entry[i].content.$t;
+
+var thumburl;try{thumburl=data.feed.entry[i].media$img.url;}catch(error)
+{s=data.feed.entry[i].content.$t;a=s.indexOf("<img");b=s.indexOf("src=\"",a);c=s.indexOf("\"",b+5);d=s.substr(b+5,c-b-5);if((a!=-1)&&(b!=-1)&&(c!=-1)&&(d!="")){thumburl=d;}else thumburl='http://3.bp.blogspot.com/-zP87C2q9yog/UVopoHY30SI/AAAAAAAAE5k/AIyPvrpGLn8/s1600/picture_not_available.png';}
+
+var postdate=data.feed.entry[i].published.$t;var cdyear=postdate.substring(0,4);var cdmonth=postdate.substring(5,7);var cdday=postdate.substring(8,10);var monthnames=new Array();monthnames[1]="Jan";monthnames[2]="Feb";monthnames[3]="Mar";monthnames[4]="Apr";monthnames[5]="May";monthnames[6]="June";monthnames[7]="July";monthnames[8]="Aug";monthnames[9]="Sept";monthnames[10]="Oct";monthnames[11]="Nov";monthnames[12]="Dec";
+
+
+var towrite='';
+
+towrite=towrite+monthnames[parseInt(cdmonth,10)]+' '+cdday+', '+cdyear;
+
+var newdate = cdday+'/'+cdmonth+'/'+cdyear;
+
+var timestamp1=data.feed.entry[i].published.$t.substring(0,19)+data.feed.entry[i].published.$t.substring(23,29);var timestamp=encodeURIComponent(timestamp1);
+
+var summary = data.feed.entry[i].content.$t.replace(/<\/?[^>]+(>|$)/g, "").substr(0, 20000);
+var myString = summary.split("@");
+var setnewurl = myString[0].replace('#', '');
+var newurl = 'https://www.google.com/url?q='+ setnewurl;
+love += "<div class='d-inline p-lg-1 px-3 mb-4 text-white thumbScene'>";
+love += "<div class='videoimg_wrapper no-video'>";
+love += "<a class='' href='"+ newurl +"' title='"+ posttitle +"' id='alinks1' rel=''>";
+love += "<div class=''>";
+love += "<div class='view' data-test='view'>";
+love += "<div class='imagex-container hoverthumbScene' style='padding-top: 56.2%;'>";
+love += "<video autoplay='autoplay' class='video-player' id='replace' loop='loop' playsinline='playsinline' preload='auto' src='"+ myString[1] +"' type='video/mp4'> </video>";
+love += "<img class=' ' alt='"+ posttitle +"' src='"+ thumburl +"' srcset='"+ thumburl +"' title='"+ posttitle +"'/>";  
+love += "</div>";
+love += "</div>";
+love += "</div>";
+love += "</a>";
+love += "</div>";
+love += "<div class='thumb'><div class='modelName text-white text-truncate pt-1'>";
+for (var m = 0; m < data.feed.entry[i].category.length; m++) {
+if(data.feed.entry[i].category[m].term == "selects" || data.feed.entry[i].category[m].term == "shoplyfter" || data.feed.entry[i].category[m].term == "sislovesme" || data.feed.entry[i].category[m].term == "bffs" || data.feed.entry[i].category[m].term == "brat-tamer" || data.feed.entry[i].category[m].term == "moms-ts" || data.feed.entry[i].category[m].term == "pervmom" || data.feed.entry[i].category[m].term == "labs" || data.feed.entry[i].category[m].term == "vixenplus" || data.feed.entry[i].category[m].term == "teamskeet" || data.feed.entry[i].category[m].term == "hijab-hookup" || data.feed.entry[i].category[m].term == "dadcrush" || data.feed.entry[i].category[m].term == "mylf-labs" || data.feed.entry[i].category[m].term == "all-stars" || data.feed.entry[i].category[m].term == "daughterswap" || data.feed.entry[i].category[m].term == "my-babysitters-club" || data.feed.entry[i].category[m].term == "momdrips-ts" || data.feed.entry[i].category[m].term == "teenpies" || data.feed.entry[i].category[m].term == "family-strokes" || data.feed.entry[i].category[m].term == "tiger-moms-ts" || data.feed.entry[i].category[m].term == "shesnew" || data.feed.entry[i].category[m].term == "anal-mom-ts" || data.feed.entry[i].category[m].term == "not-my-grandpa" || data.feed.entry[i].category[m].term == "mylfwood-ts" || data.feed.entry[i].category[m].term == "freeuse-fantasy" || data.feed.entry[i].category[m].term == "stepsiblings" || data.feed.entry[i].category[m].term == "sis-swap" || data.feed.entry[i].category[m].term == "pervtherapy"){
+}else{
+var categoryname = data.feed.entry[i].category[m].term.replace('-', ' ').replace('-', ' ').replace('-', ' ');
+love += "<a class='model-name-link' href='/p/"+ data.feed.entry[i].category[m].term +".html'>"+categoryname+"</a> ";
+}
+}
+love += "</div><div class='scene-thumb-desc'><div class='left-info'><div class='py-1 d-flex'>";
+for (var m = 0; m < data.feed.entry[i].category.length; m++) {
+
+if(data.feed.entry[i].category[m].term == "mylfwood-ts"){
+love += "<a class='' href='/p/mylfwood-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Mylfwood</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "freeuse-fantasy"){
+love += "<a class='' href='/p/freeuse-fantasy.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Freeuse Fantasy</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "stepsiblings"){
+love += "<a class='' href='/p/stepsiblings.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>StepSiblings</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "sis-swap"){
+love += "<a class='' href='/p/sis-swap.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Sis Swap</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "pervtherapy"){
+love += "<a class='' href='/p/pervtherapy.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>PervTherapy</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "anal-mom-ts"){
+love += "<a class='' href='/p/anal-mom-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>AnalMom</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "not-my-grandpa"){
+love += "<a class='' href='/p/not-my-grandpa.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Not My Grandpa</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "daughterswap"){
+love += "<a class='' href='/p/daughterswap.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Daughter Swap</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "my-babysitters-club"){
+love += "<a class='' href='/p/my-babysitters-club.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>My BabySitters Club</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "momdrips-ts"){
+love += "<a class='' href='/p/momdrips-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>MomDrips</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "teenpies"){
+love += "<a class='' href='/p/teenpies.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Teen Pies</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "family-strokes"){
+love += "<a class='' href='/p/family-strokes.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Family Strokes</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "tiger-moms-ts"){
+love += "<a class='' href='/p/tiger-moms-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Tiger Moms</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "shesnew"){
+love += "<a class='' href='/p/shesnew.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>She's New</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "mylf-labs"){
+love += "<a class='' href='/p/mylf-labs.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Mylf Labs</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "all-stars"){
+love += "<a class='' href='/p/all-stars.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>TeamSkeet AllStars</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "hijab-hookup"){
+love += "<a class='' href='/p/hijab-hookup.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Hijab Hookup</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "dadcrush"){
+love += "<a class='' href='/p/dadcrush.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>DadCrush</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "labs"){
+love += "<a class='' href='/p/labs.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>TeamSkeet Labs</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "pervmom"){
+love += "<a class='' href='/p/pervmom.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>PervMom</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "moms-ts"){
+love += "<a class='' href='/p/moms-ts.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Mylf Of The Month</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "brat-tamer"){
+love += "<a class='' href='/p/brat-tamer.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Brat Tamer</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "bffs"){
+love += "<a class='' href='/p/bffs.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>BFFS</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "shoplyfter"){
+love += "<a class='' href='/p/shoplyfter.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Shoplyfter</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "selects"){
+love += "<a class='' href='/p/selects.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>TeamSkeet Selects</small></div></a>";
+}
+
+if(data.feed.entry[i].category[m].term == "sislovesme"){
+love += "<a class='' href='/p/sislovesme.html' id='' rel='' title=''> <div class='siteName mr-2 px-2 rounded mb-0'><small>Sis Loves Me</small></div></a>";
+}
+
+}
+love += "</div><div class='description'><a class='' expr:href='"+ newurl +"' id='alinks2' rel='' title=''> <small class='description'>"+ posttitle +"</small> </a></div><div class='sceneDate mt-n1 clearfix'><small>"+ newdate +"</small></div></div></div>";
+
+love += "</div>";
+love += "</div>";
+}
+
+$(love).appendTo("#show");
+
+$(".hoverthumbScene").hover(
+    function() {
+  	$(this).children('video').show();
+  	$(this).children('video').css('opacity','1');
+	$(this).children('img').css('opacity','0');
+	$('.iconplay').css('opacity','0');
+      $(this).children("video").get(0).play();
+    }, function() {
+		$(this).children('img').css('opacity','1');
+  		$(this).children('video').css('z-index','0');
+  		$(this).children('video').css('opacity','0');
+       $(this).children("video").get(0).pause();
+    });
+}
+    });
+
+}
+//]]>
+</script>
 </body>
 </html>
